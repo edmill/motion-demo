@@ -1,7 +1,7 @@
 'use client'
 
-import { NotificationCardBefore } from '@/components/NotificationCardBefore'
-import { NotificationCardAfter }  from '@/components/NotificationCardAfter'
+import { NotificationCardBefore }   from '@/components/NotificationCardBefore'
+import { NotificationCardAfter }    from '@/components/NotificationCardAfter'
 
 export default function DemoPage() {
   return (
@@ -34,8 +34,7 @@ export default function DemoPage() {
           <span style={{ color: '#f97316' }}>Different feeling.</span>
         </h1>
         <p style={{ fontSize: '16px', color: '#94a3b8', lineHeight: 1.6, fontWeight: 300 }}>
-          Left: what an AI agent builds with no motion spec.<br />
-          Right: what it builds after reading <code style={{ color: '#f97316', fontFamily: 'monospace', fontSize: '14px' }}>MOTION.md</code>
+          Left: no motion spec. Right: same notification recipe with MOTION.md applied.
         </p>
       </div>
 
@@ -45,7 +44,7 @@ export default function DemoPage() {
         gridTemplateColumns: '1fr 1fr',
         gap: '2px',
         width: '100%',
-        maxWidth: '900px',
+        maxWidth: '1280px',
         borderRadius: '16px',
         overflow: 'hidden',
         border: '1px solid #1e293b',
@@ -83,9 +82,6 @@ export default function DemoPage() {
             0.3s ease fade. No personality. No spring. No brand.
           </div>
         </div>
-
-        {/* Divider */}
-        <div style={{ display: 'none' }} />
 
         {/* After */}
         <div style={{ background: '#0d0d18', padding: '32px', borderLeft: '1px solid #1e293b', position: 'relative' }}>
