@@ -2,6 +2,10 @@
 
 import { NotificationCardBefore }   from '@/components/NotificationCardBefore'
 import { NotificationCardAfter }    from '@/components/NotificationCardAfter'
+import { NotificationCardCrafted }  from '@/components/NotificationCardCrafted'
+import { formatNotificationRecipeSummary } from '@/lib/format-notification-recipe'
+
+const notificationRecipeSummary = formatNotificationRecipeSummary()
 
 export default function DemoPage() {
   return (
@@ -34,14 +38,14 @@ export default function DemoPage() {
           <span style={{ color: '#f97316' }}>Different feeling.</span>
         </h1>
         <p style={{ fontSize: '16px', color: '#94a3b8', lineHeight: 1.6, fontWeight: 300 }}>
-          Left: no motion spec. Right: same notification recipe with MOTION.md applied.
+          Left: no motion spec. Right two: same notification recipe with MOTION.md applied.
         </p>
       </div>
 
       {/* Side by side panels */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
+        gridTemplateColumns: '1fr 1fr 1fr',
         gap: '2px',
         width: '100%',
         maxWidth: '1280px',
@@ -112,7 +116,40 @@ export default function DemoPage() {
             fontSize: '12px', color: '#94a3b8', lineHeight: 1.6,
           }}>
             <span style={{ color: '#10b981', fontWeight: '500' }}>Recipe applied:</span>{' '}
-            500ms spring · slide from bottom · 48px · exits at 280ms
+            {notificationRecipeSummary}
+          </div>
+        </div>
+
+        {/* Crafted */}
+        <div style={{ background: '#0d0d18', padding: '32px', borderLeft: '1px solid #1e293b', position: 'relative' }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '28px',
+          }}>
+            <div style={{
+              width: '8px', height: '8px', borderRadius: '50%', background: '#f97316',
+            }} />
+            <span style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              Notification recipe
+            </span>
+          </div>
+          <div style={{
+            fontFamily: 'monospace', fontSize: '11px', color: '#475569',
+            background: '#0a0a0e', border: '1px solid #1e293b',
+            borderRadius: '6px', padding: '10px 14px', marginBottom: '24px',
+          }}>
+            <span style={{ color: '#64748b' }}>prompt:</span>{' '}
+            <span style={{ color: '#f97316' }}>"read MOTION.md then build the notification card"</span>
+          </div>
+          <div style={{ height: '320px', position: 'relative', overflow: 'hidden' }}>
+            <NotificationCardCrafted />
+          </div>
+          <div style={{
+            marginTop: '20px', padding: '12px', background: 'rgba(249,115,22,0.06)',
+            border: '1px solid rgba(249,115,22,0.15)', borderRadius: '8px',
+            fontSize: '12px', color: '#94a3b8', lineHeight: 1.6,
+          }}>
+            <span style={{ color: '#f97316', fontWeight: '500' }}>Recipe applied:</span>{' '}
+            {notificationRecipeSummary}
           </div>
         </div>
       </div>

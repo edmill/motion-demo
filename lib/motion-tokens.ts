@@ -25,7 +25,7 @@ export const motionTokens = {
     ease: [0.34, 1.56, 0.64, 1] as [number,number,number,number],
     exitDuration: 0.28,
     distancePx: 48,
-    slideFrom: 'bottom',
+    slideFrom: 'top',
   },
   drawer: {
     duration: 0.4,

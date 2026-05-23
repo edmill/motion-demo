@@ -28,7 +28,8 @@ const SAMPLE_NOTIFICATIONS: Notification[] = [
 ]
 
 // Pull directly from motionTokens — generated from MOTION.md
-const { duration, ease, exitDuration, distancePx } = motionTokens.notification
+const { duration, ease, exitDuration, distancePx, slideFrom } = motionTokens.notification
+const yOffset = slideFrom === 'top' ? -distancePx : distancePx
 
 export function NotificationCardAfter() {
   const [notifications, setNotifications] = useState<(Notification & { uid: number })[]>([])
@@ -83,7 +84,7 @@ export function NotificationCardAfter() {
                 layout
                 /* ✅ Values from motionTokens — generated from MOTION.md notification recipe
                    duration: 0.5s | ease: spring [0.34,1.56,0.64,1] | distance: 48px from bottom */
-                initial={{ opacity: 0, y: distancePx }}
+                initial={{ opacity: 0, y: yOffset }}
                 animate={{
                   opacity: 1,
                   y: 0,
@@ -91,7 +92,7 @@ export function NotificationCardAfter() {
                 }}
                 exit={{
                   opacity: 0,
-                  y: distancePx / 2,
+                  y: yOffset / 2,
                   transition: { duration: exitDuration },
                 }}
                 style={{
@@ -127,7 +128,7 @@ export function NotificationCardAfter() {
                 </div>
                 <motion.button
                   onClick={() => dismiss(notif.uid)}
-                  whileTap={{ scale: 0.9 }}
+                  whileTap={{ scale: motionTokens.press.scale }}
                   style={{ background: 'none', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '16px', lineHeight: 1, flexShrink: 0 }}
                 >
                   ×

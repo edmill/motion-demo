@@ -49,7 +49,7 @@ motion:
   notification:
     duration: 500ms # long2
     easing: cubic-bezier(0.34,1.56,0.64,1)
-    slide-from: bottom
+    slide-from: top
     distance: 48px
     exit-duration: 280ms
 ---
